@@ -59,12 +59,12 @@ font-size:50px;
 color:#ff4d88;
 }
 
-/* YAZI */
+/* PARAGRAF */
 #message{
-width:70%;
-margin:auto;
-font-size:22px;
-min-height:60px;
+width:75%;
+margin:40px auto;
+font-size:20px;
+line-height:1.6;
 }
 
 /* SAYAC */
@@ -74,7 +74,7 @@ font-size:22px;
 color:#ff7aa8;
 }
 
-/* FİLM ŞERİDİ */
+/* FİLM */
 .filmContainer{
 margin-top:100px;
 overflow:hidden;
@@ -112,7 +112,7 @@ background:repeating-linear-gradient(to right,black 0,black 10px,transparent 10p
 100%{transform:translateX(-100%)}
 }
 
-/* SCROLL FOTO */
+/* SCROLL */
 .section{
 opacity:0;
 transform:translateY(50px);
@@ -126,7 +126,6 @@ transform:translateY(0);
 .section img{
 width:260px;
 border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
 }
 
 /* BUTON */
@@ -141,18 +140,34 @@ color:white;
 cursor:pointer;
 }
 
-/* FINAL YAZI */
+/* FINAL */
 #finalText{
 font-size:28px;
 margin-top:20px;
 }
-<img id="finalPhoto" src="final.jpg" style="
+
+/* FOTO */
+#finalPhoto{
 display:none;
 width:300px;
 margin-top:20px;
 border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.6);
-">
+opacity:0;
+transition:1s;
+}
+
+/* KARARTMA */
+#overlay{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+top:0;
+left:0;
+display:none;
+z-index:5;
+}
+
 /* KALP */
 .heart{
 position:fixed;
@@ -170,44 +185,49 @@ opacity:0;
 
 <body>
 
+<div id="overlay"></div>
+
 <!-- AÇILIŞ -->
 <div id="intro">
 <h2>Sana küçük bir sürprizim var 🎁</h2>
 <button onclick="start()">Aç ❤️</button>
 </div>
 
-<h1> İyi ki Doğdun En İyi Kalpli Doktor ❤️ </h1>
+<h1>İyi ki Doğdun En İyi Kalpli Doktor ❤️</h1>
 
-<div id="message"></div>
+<div id="message">
+Sen hayatıma girdiğinden beri her şey değişti.
+Seninle geçen her an benim için ayrı bir anlam taşıyor.
+Gülüşün, bakışın, yanımda oluşun…
+Hepsi benim için tarif edilemez bir mutluluk.
+
+İyi ki varsın…
+İyi ki hayatımdasın…
+İyi ki doğdun aşkım ❤️
+</div>
+
 <div id="counter"></div>
 
 <!-- FİLM -->
 <div class="filmContainer">
 <div class="film">
-
 <div class="frame"><img src="IMG_1158.jpeg"><div class="caption">14 Haziran 2024</div></div>
 <div class="frame"><img src="IMG_1134.jpeg"><div class="caption">26 Haziran 2024</div></div>
 <div class="frame"><img src="IMG_1143.jpeg"><div class="caption">2 Nisan 2025</div></div>
 <div class="frame"><img src="IMG_1153.jpeg"><div class="caption">23 Ağustos 2025</div></div>
 <div class="frame"><img src="IMG_1147.jpeg"><div class="caption">24 Şubat 2026</div></div>
-
 </div>
 </div>
 
-<!-- SCROLL FOTO -->
+<!-- SCROLL -->
 <div class="section"><img src="IMG_1172.jpeg"><p>En Büyük Destekçim ❤️</p></div>
 <div class="section"><img src="IMG_1163.jpeg"><p>Bu anı hiç unutmam</p></div>
-<div class="section"><img src="7f2ca9ac-1a4f-4867-9c98-3aea94e5
-f8e9.jpeg"><p> Güzelliğimm</p></div>
-<div class="section"><img src="IMG_1166.jpeg"><p>Elimi koparttiydin</p></div>
-<div class="section"><img src="IMG_1168.jpeg"><p>Hehehehe </p></div>
-<div class="section"><img src="IMG_1152.jpeg"><p>Bayılırım </p></div>
-<div class="section"><img src="IMG_1150.jpeg"><p>Sally Mcqueen</p></div>
-<div class="section"><img src="IMG_1148.jpeg"><p>Gozlerine Aşığım </p></div>
-<div class="section"><img src="IMG_1144.jpeg"><p>EN SEVDIKLERIM </p></div>
+<div class="section"><img src="7f2ca9ac-1a4f-4867-9c98-3aea94e5f8e9.jpeg"><p>Güzelliğimm</p></div>
+
 <!-- FINAL -->
 <button class="final" onclick="finalAction()">Son bir şey...</button>
 <div id="finalText"></div>
+<img id="finalPhoto" src="final.jpg">
 
 <!-- MÜZİK -->
 <audio id="music">
@@ -216,29 +236,14 @@ f8e9.jpeg"><p> Güzelliğimm</p></div>
 
 <script>
 
-/* BAŞLAT */
+/* START */
 function start(){
 document.getElementById("intro").style.display="none"
 document.getElementById("music").play()
-typeText()
-}
-
-/* YAZI */
-	<div id="message" style="margin-top:40px; font-size:20px; width:75%; margin-left:auto; margin-right:auto; line-height:1.6;">
-utanarak sana elimi atmaya calistigim gunlerden 18.’i yasina kadar; harcadigimiz tum dakikalari, eglenerek gecirdigimiz her zamani ve yuzunu guldurebildigim her ani aklima kazimaya calisiyorum. Ben seninle oldugum ilk gunden bu yana hep varligini hissettim ve her zaman en buyuk destekcim oldun, sen farkinda olmasanda basimi yaslayabilecegim bir omuz oldun. Bana temiz kalbinin sevgisini hissettirdin. Tartistigimizda bile kendime “umarim suan yaren dersini aksatmiyordur” cumlesini icimden tekrarliyorum. Umarim bu dunyada hak ettigin herseyi kazanip, cok istedigin doktor olma hayaline kavusursun. Ben her zaman seni destekleyecek ve gurur duyacagim.  
- Gercekden cok incedir, temiz kalbinin icinden gelen bazi narin istekler, durumu kotu olan insanlara yardim etmeyi istemek gibi. Sana soylemiyorum ama emin ol bu hedeflerini gerceklestirmeni ve tum bunlari benim ile birlikte yapmani cok isterim.  Seninle hep gurur duyacagim. Iyi bir sevgili oldugun icin ne kadar tesekkur etsem az. Iyi ki dogdun, iyi ki hayatima dokundun ve canimdan bir parca oldun. 18. Yasin sana saglik ve basari getirsin. Seni herseyden cok seviyorum. Dogum gunun kutlu olsun Yarosum.
-</div>
-let i=0
-function typeText(){
-if(i<text.length){
-document.getElementById("message").innerHTML+=text[i]
-i++
-setTimeout(typeText,40)
-}
 }
 
 /* SAYAC */
-function counter(){
+setInterval(()=>{
 const start=new Date("2024-05-23T17:00:00")
 const now=new Date()
 const diff=now-start
@@ -248,8 +253,7 @@ const h=Math.floor((diff/(1000*60*60))%24)
 
 document.getElementById("counter").innerHTML=
 "23 Mayıs'tan beri "+d+" gün "+h+" saat birlikteyiz ❤️"
-}
-setInterval(counter,1000)
+},1000)
 
 /* YILDIZ */
 for(let i=0;i<80;i++){
@@ -285,7 +289,12 @@ step++
 
 }else if(step==1){
 
-document.getElementById("finalPhoto").style.display="block"
+document.getElementById("overlay").style.display="block"
+
+let photo=document.getElementById("finalPhoto")
+photo.style.display="block"
+
+setTimeout(()=>{photo.style.opacity=1},100)
 
 document.querySelector(".final").innerText="Son..."
 
@@ -293,7 +302,7 @@ step++
 
 }else{
 
-for(let i=0;i<60;i++){
+for(let i=0;i<80;i++){
 let h=document.createElement("div")
 h.className="heart"
 h.innerHTML="💖"
@@ -306,6 +315,7 @@ setTimeout(()=>h.remove(),3000)
 
 }
 }
+
 </script>
 
 </body>
